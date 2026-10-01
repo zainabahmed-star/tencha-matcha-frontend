@@ -8,6 +8,7 @@ const SignUpForm = (props) => {
 
     const initialState = {
         username: '',
+        email: '',
         password: '',
         confirmPassword: '',
     }
@@ -18,6 +19,7 @@ const SignUpForm = (props) => {
     const handleChange = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value})
     }
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
@@ -31,9 +33,12 @@ const SignUpForm = (props) => {
     }
 
     const isFormValid = () => {
-        if(formData.username && formData.password && formData.password === formData.confirmPassword) {
-            return true
-        } else return false
+        return (
+            formData.username &&
+            formData.email &&
+            formData.password &&
+            formData.password === formData.confirmPassword
+        )
     }
 
     return (
@@ -45,13 +50,14 @@ const SignUpForm = (props) => {
             <form onSubmit={handleSubmit}>
                 Username:
                 <input type="text" name="username" onChange={handleChange} value={formData.username} required />
+                Email:
+                <input type="email" name="email" onChange={handleChange} value={formData.email} required />
                 Password:
                 <input type="password" name="password" onChange={handleChange} value={formData.password} required />
                 Confirm Password:
                 <input type="password" name="confirmPassword" onChange={handleChange} value={formData.confirmPassword} required />
                 <div className="actions">
                     <button type="submit" disabled={!isFormValid()}>Sign Up</button>
-                    <button>Cancel</button>
                 </div>
             </form>
         </section>
@@ -59,4 +65,3 @@ const SignUpForm = (props) => {
 }
 
 export default SignUpForm
-
