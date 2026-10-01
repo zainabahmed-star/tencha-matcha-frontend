@@ -19,7 +19,10 @@ const Nav = (props) => {
                     <li><Link to="/cart">Cart ({count})</Link></li>
                     <li><Link to="/orders">My orders</Link></li>
                     {props.user.role === 'admin' && (
-                        <li><Link to="/admin/orders">Admin</Link></li>
+                        <>
+                            <li><Link to="/admin/orders">Manage orders</Link></li>
+                            <li><Link to="/admin/products">Manage products</Link></li>
+                        </>
                     )}
                     <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
                 </ul>

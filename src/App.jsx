@@ -8,6 +8,7 @@ import Checkout from "./pages/Checkout"
 import OrderSuccess from "./pages/OrderSuccess"
 import MyOrders from "./pages/MyOrders"
 import AdminOrders from "./pages/AdminOrders"
+import AdminProducts from "./pages/AdminProducts"
 import './App.css'
 import { Routes, Route } from "react-router"
 import { useState } from "react"
@@ -36,6 +37,7 @@ const App = () => {
           <Route path='/order-success' element={<OrderSuccess />} />
           <Route path='/orders' element={<MyOrders user={user} />} />
           <Route path='/admin/orders' element={<AdminOrders user={user} />} />
+          <Route path='/admin/products' element={<AdminProducts user={user} />} />
           <Route path='/sign-up' element={<SignUpForm setUser={setUser} />} />
           <Route path='/sign-in' element={<SignInForm setUser={setUser} />} />
         </Routes>
